@@ -90,6 +90,7 @@ healyx-monitoring/
 │       ├── Errors.json
 │       └── Cost.json
 ├── error-log/                   # 에러 로그 수집 관련 파일
+|   |── README.md                # 에러 로그 수집 구성 설명
 │   ├── LoggingFilter.java       # API 요청/응답 로깅 필터
 │   └── logback-spring.xml       # CloudWatch용 JSON 로그 포맷 설정
 └── setup/
