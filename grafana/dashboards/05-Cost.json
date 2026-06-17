@@ -3,7 +3,7 @@
   "kind": "Dashboard",
   "metadata": {
     "name": "adcfdbl",
-    "generation": 81,
+    "generation": 89,
     "creationTimestamp": "2026-05-25T14:20:48Z",
     "labels": {},
     "annotations": {}
@@ -195,11 +195,11 @@
                       "spec": {
                         "dimensions": {
                           "Currency": "USD",
-                          "ServiceName": "AmazonRoute53"
+                          "ServiceName": "AmazonVPC"
                         },
                         "expression": "",
                         "id": "",
-                        "label": "Route53",
+                        "label": "VPC",
                         "logGroups": [],
                         "matchExact": true,
                         "metricEditorMode": 0,
@@ -218,6 +218,114 @@
                       }
                     },
                     "refId": "D",
+                    "hidden": false
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "cloudwatch",
+                      "version": "v0",
+                      "spec": {
+                        "dimensions": {
+                          "Currency": "USD",
+                          "ServiceName": "AmazonElastiCache"
+                        },
+                        "expression": "",
+                        "id": "",
+                        "label": "ElastiCache",
+                        "logGroups": [],
+                        "matchExact": false,
+                        "metricEditorMode": 0,
+                        "metricName": "EstimatedCharges",
+                        "metricQueryType": 0,
+                        "namespace": "AWS/Billing",
+                        "period": "",
+                        "queryLanguage": "CWLI",
+                        "queryMode": "Metrics",
+                        "region": "us-east-1",
+                        "sqlExpression": "",
+                        "statistic": "Maximum"
+                      },
+                      "labels": {
+                        "grafana.app/export-label": "cloudwatch-1"
+                      }
+                    },
+                    "refId": "E",
+                    "hidden": false
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "cloudwatch",
+                      "version": "v0",
+                      "spec": {
+                        "dimensions": {
+                          "Currency": "USD",
+                          "ServiceName": "AWSSecretsManager"
+                        },
+                        "expression": "",
+                        "id": "",
+                        "label": "SecretsManager",
+                        "logGroups": [],
+                        "matchExact": false,
+                        "metricEditorMode": 0,
+                        "metricName": "EstimatedCharges",
+                        "metricQueryType": 0,
+                        "namespace": "AWS/Billing",
+                        "period": "",
+                        "queryLanguage": "CWLI",
+                        "queryMode": "Metrics",
+                        "region": "us-east-1",
+                        "sqlExpression": "",
+                        "statistic": "Maximum"
+                      },
+                      "labels": {
+                        "grafana.app/export-label": "cloudwatch-1"
+                      }
+                    },
+                    "refId": "F",
+                    "hidden": false
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "cloudwatch",
+                      "version": "v0",
+                      "spec": {
+                        "dimensions": {
+                          "Currency": "USD",
+                          "ServiceName": "AmazonCloudWatch"
+                        },
+                        "expression": "",
+                        "id": "",
+                        "label": "CloudWatch ",
+                        "logGroups": [],
+                        "matchExact": false,
+                        "metricEditorMode": 0,
+                        "metricName": "EstimatedCharges",
+                        "metricQueryType": 0,
+                        "namespace": "AWS/Billing",
+                        "period": "",
+                        "queryLanguage": "CWLI",
+                        "queryMode": "Metrics",
+                        "region": "us-east-1",
+                        "sqlExpression": "",
+                        "statistic": "Maximum"
+                      },
+                      "labels": {
+                        "grafana.app/export-label": "cloudwatch-1"
+                      }
+                    },
+                    "refId": "G",
                     "hidden": false
                   }
                 }
@@ -807,7 +915,7 @@
                       "group": "__expr__",
                       "version": "v0",
                       "spec": {
-                        "expression": "$A / 11 * 31",
+                        "expression": "$A / 17* 31",
                         "type": "math"
                       },
                       "labels": {
@@ -1029,7 +1137,7 @@
         "kind": "Panel",
         "spec": {
           "id": 8,
-          "title": "서비스별 F",
+          "title": "일별 누적 비용 현황",
           "description": "",
           "links": [],
           "data": {
@@ -1045,10 +1153,9 @@
                       "version": "v0",
                       "spec": {
                         "dimensions": {
-                          "Currency": "USD",
-                          "ServiceName": "AmazonEC2"
+                          "Currency": "USD"
                         },
-                        "label": "EC2",
+                        "label": "총비용",
                         "logGroups": [],
                         "matchExact": true,
                         "metricEditorMode": 0,
@@ -1067,114 +1174,6 @@
                     "refId": "A",
                     "hidden": false
                   }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "cloudwatch",
-                      "version": "v0",
-                      "spec": {
-                        "dimensions": {
-                          "Currency": "USD",
-                          "ServiceName": "AmazonRDS"
-                        },
-                        "expression": "",
-                        "id": "",
-                        "label": "RDS",
-                        "logGroups": [],
-                        "matchExact": true,
-                        "metricEditorMode": 0,
-                        "metricName": "EstimatedCharges",
-                        "metricQueryType": 0,
-                        "namespace": "AWS/Billing",
-                        "period": "86400",
-                        "queryLanguage": "CWLI",
-                        "queryMode": "Metrics",
-                        "region": "us-east-1",
-                        "sqlExpression": "",
-                        "statistic": "Maximum"
-                      },
-                      "labels": {
-                        "grafana.app/export-label": "cloudwatch-1"
-                      }
-                    },
-                    "refId": "B",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "cloudwatch",
-                      "version": "v0",
-                      "spec": {
-                        "dimensions": {
-                          "Currency": "USD",
-                          "ServiceName": "AWSELB"
-                        },
-                        "expression": "",
-                        "id": "",
-                        "label": "ALB",
-                        "logGroups": [],
-                        "matchExact": true,
-                        "metricEditorMode": 0,
-                        "metricName": "EstimatedCharges",
-                        "metricQueryType": 0,
-                        "namespace": "AWS/Billing",
-                        "period": "86400",
-                        "queryLanguage": "CWLI",
-                        "queryMode": "Metrics",
-                        "region": "us-east-1",
-                        "sqlExpression": "",
-                        "statistic": "Maximum"
-                      },
-                      "labels": {
-                        "grafana.app/export-label": "cloudwatch-1"
-                      }
-                    },
-                    "refId": "C",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "cloudwatch",
-                      "version": "v0",
-                      "spec": {
-                        "dimensions": {
-                          "Currency": "USD",
-                          "ServiceName": "AmazonRoute53"
-                        },
-                        "expression": "",
-                        "id": "",
-                        "label": "Route53",
-                        "logGroups": [],
-                        "matchExact": true,
-                        "metricEditorMode": 0,
-                        "metricName": "EstimatedCharges",
-                        "metricQueryType": 0,
-                        "namespace": "AWS/Billing",
-                        "period": "86400",
-                        "queryLanguage": "CWLI",
-                        "queryMode": "Metrics",
-                        "region": "us-east-1",
-                        "sqlExpression": "",
-                        "statistic": "Maximum"
-                      },
-                      "labels": {
-                        "grafana.app/export-label": "cloudwatch-1"
-                      }
-                    },
-                    "refId": "D",
-                    "hidden": false
-                  }
                 }
               ],
               "transformations": [],
@@ -1189,23 +1188,23 @@
             "version": "13.0.1+security-01",
             "spec": {
               "options": {
-                "barRadius": 0,
-                "barWidth": 0.97,
+                "barRadius": 0.3,
+                "barWidth": 0.85,
                 "fullHighlight": false,
                 "groupWidth": 0.7,
                 "legend": {
                   "calcs": [],
                   "displayMode": "list",
                   "placement": "bottom",
-                  "showLegend": true
+                  "showLegend": false
                 },
                 "orientation": "horizontal",
-                "showValue": "auto",
+                "showValue": "always",
                 "stacking": "none",
                 "tooltip": {
                   "hideZeros": false,
                   "mode": "single",
-                  "sort": "desc"
+                  "sort": "none"
                 },
                 "xTickLabelRotation": 0,
                 "xTickLabelSpacing": 0
@@ -1217,17 +1216,25 @@
                     "mode": "absolute",
                     "steps": [
                       {
-                        "value": 0,
-                        "color": "green"
+                        "value": null,
+                        "color": "#2260FF"
                       },
                       {
-                        "value": 80,
-                        "color": "red"
+                        "value": 10,
+                        "color": "#5C8DFF"
+                      },
+                      {
+                        "value": 15,
+                        "color": "#FFD166"
+                      },
+                      {
+                        "value": 20,
+                        "color": "#FF6B6B"
                       }
                     ]
                   },
                   "color": {
-                    "mode": "palette-classic"
+                    "mode": "thresholds"
                   },
                   "custom": {
                     "axisBorderShow": false,
@@ -1414,7 +1421,7 @@
     "tags": [],
     "timeSettings": {
       "timezone": "browser",
-      "from": "now-6h",
+      "from": "now-30d",
       "to": "now",
       "autoRefresh": "",
       "autoRefreshIntervals": [
