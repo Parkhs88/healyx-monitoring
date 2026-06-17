@@ -7,7 +7,7 @@
 
 ## 프로젝트 개요
 
-HEALYX는 외국인 환자를 위한 모바일 헬스케어 앱입니다.  
+HEALYX는 외국인 환자를 위한 병원찾기 앱입니다.  
 본 레포지토리는 HEALYX 백엔드 서버의 인프라 및 서비스 상태를 실시간으로 모니터링하기 위한 Grafana 대시보드 구성을 담고 있습니다.
 
 ---
@@ -18,7 +18,7 @@ HEALYX는 외국인 환자를 위한 모바일 헬스케어 앱입니다.
 |------|------|
 | Prometheus | 메트릭 수집 |
 | Grafana | 대시보드 시각화 |
-| AWS CloudWatch | 로그 수집 및 비용 모니터링 |
+| AWS CloudWatch | 로그 수집 및 비용(Billing) 모니터링 |
 | Spring Boot Actuator | 애플리케이션 메트릭 노출 |
 | Docker / Docker Compose | 컨테이너 실행 환경 |
 
@@ -64,7 +64,7 @@ API 요청 수, 응답 시간, HTTP 상태코드별 현황
 ![Errors](docs/images/Errors.png)
 
 ### Cost (비용)
-EC2 및 ALB 운영 비용 모니터링 (CloudWatch Billing 메트릭 활용)
+EC2, RDS, ALB 등 주요 AWS 서비스별 운영 비용 모니터링 (CloudWatch Billing 메트릭 활용)
 
 ![Cost](docs/images/Cost.png)
 
@@ -84,13 +84,13 @@ healyx-monitoring/
 │   └── docker-compose.yml       # Prometheus + Grafana 실행 설정
 ├── grafana/
 │   └── dashboards/              # Grafana 대시보드 JSON (Import용)
-│       ├── Overview.json
-│       ├── Infra.json
-│       ├── Service.json
-│       ├── Errors.json
-│       └── Cost.json
+│       ├── 01-Overview.json
+│       ├── 02-Infra.json
+│       ├── 03-Service.json
+│       ├── 04-Errors.json
+│       └── 05-Cost.json
 ├── error-log/                   # 에러 로그 수집 관련 파일
-|   |── README.md                # 에러 로그 수집 구성 설명
+│   ├── README.md                # 에러 로그 수집 구성 설명
 │   ├── LoggingFilter.java       # API 요청/응답 로깅 필터
 │   └── logback-spring.xml       # CloudWatch용 JSON 로그 포맷 설정
 └── setup/
