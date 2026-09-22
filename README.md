@@ -102,7 +102,7 @@ healyx-monitoring/
 ## 백엔드 연동 내용
 
 ### 1. Prometheus 메트릭 엔드포인트 활성화
-`application-prod.properties`에 prometheus 엔드포인트를 추가하고,  
+`application-prod.properties`에 prometheus 엔드포인트를 추가
 `SecurityConfig.java`에서 `/actuator/prometheus` 접근을 허용 처리
 
 ### 2. API 로깅 필터 추가
